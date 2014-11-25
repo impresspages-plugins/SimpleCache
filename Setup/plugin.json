@@ -1,0 +1,7 @@
+{
+    "title": "Simple cache",
+    "version": "1.00",
+    "name": "SimpleCache",
+    "description": "Cache the HTML of the whole page in file/secure/tmp dir",
+    "author": "ImpressPages"
+}
