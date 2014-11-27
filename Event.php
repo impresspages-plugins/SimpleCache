@@ -26,6 +26,15 @@ class Event
             return;
         };
 
+        if (ipRequest()->isPost()) {
+            return;
+        }
+
+        $relativePath = ipRequest()->getRelativePath();
+        if (in_array($relativePath, array('admin', 'admin/', 'admin.php', 'admin.php/'))) {
+            return;
+        }
+
         $model = Model::instance();
         $cache = $model->getPageCache($_SERVER['REQUEST_URI']);
 
