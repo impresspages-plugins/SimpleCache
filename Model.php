@@ -78,7 +78,7 @@ class Model
                 unlink($cacheFile);
             }
         }
-        $pageStorage->get('simple_cache', array());
+        $pageStorage->set('simple_cache', array());
     }
 
     public function clearCache()
@@ -93,6 +93,7 @@ class Model
             }
             unlink($this->cacheDir() . $file);
         }
+        ipDb()->delete('page_storage', array('key' => 'simple_cache'));
     }
 
 
@@ -108,6 +109,6 @@ class Model
 
     protected function cacheDir()
     {
-        return ipFile('file/secure/tmp/');
+        return ipFile('file/secure/');
     }
 }
