@@ -48,7 +48,7 @@ class Model
         }
 
         //replace actual security token with placeholder
-        $html = preg_replace("/\"securityToken\":\"[a-z0-9]*\"/", "\"securityToken\":\"{SimpleCache_securityToken}\"", $html);
+        $html = str_replace(ipSecurityToken(), "{SimpleCache_securityToken}", $html);
 
         $cacheFileName = $this->cachedFileName($requestUri);
         file_put_contents($this->cacheDir() . $cacheFileName, $html);
