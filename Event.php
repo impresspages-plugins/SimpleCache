@@ -36,7 +36,7 @@ class Event
         }
 
         $model = Model::instance();
-        $cache = $model->getPageCache((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
+        $cache = $model->getPageCache($_SERVER['REQUEST_URI']);
 
 
         if ($cache) {
@@ -114,7 +114,7 @@ class Event
         $html = $response->execute()->getContent();
 
         $model = Model::instance();
-        $model->setPageCache($page->getId(), (empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], $html);
+        $model->setPageCache($page->getId(), $_SERVER['REQUEST_URI'], $html);
     }
 
 

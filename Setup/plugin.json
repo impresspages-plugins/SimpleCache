@@ -1,7 +1,17 @@
 {
     "title": "Simple cache",
-    "version": "1.03",
+    "version": "1.10",
     "name": "SimpleCache",
     "description": "Cache the HTML of the whole page in file/secure/tmp dir",
-    "author": "ImpressPages"
+    "author": "ImpressPages",
+    "options": [
+      {
+        "label": "Engine",
+        "name": "engine",
+        "type": "Select",
+        "values": ["Files", "Memcached"],
+        "default": "files",
+        "note": "You can avoid one DB query by placing this configuration value in config.php as follow: 'SimpleCache_engine' => 'Files|Memcached'"
+      }
+    ]
 }
